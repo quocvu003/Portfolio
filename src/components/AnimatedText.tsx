@@ -16,7 +16,7 @@ interface CharProps {
 
 function Char({ char, progress, range }: CharProps) {
   const opacity = useTransform(progress, range, [0.2, 1])
-  const display = char === ' ' ? ' ' : char
+  const display = char === ' ' ? ' ' : char
   return (
     <span className="relative inline-block whitespace-pre">
       {/* invisible placeholder preserves layout */}
@@ -46,18 +46,41 @@ export default function AnimatedText({
   const chars = text.split('')
   const total = chars.length
 
+  // Group characters into words so a word never breaks across lines.
+  // Spaces are rendered as plain text nodes, giving genuine line-break points.
+  type Token =
+    | { type: 'word'; chars: { char: string; index: number }[] }
+    | { type: 'space' }
+  const tokens: Token[] = []
+  let current: { char: string; index: number }[] = []
+  chars.forEach((char, i) => {
+    if (char === ' ') {
+      if (current.length) {
+        tokens.push({ type: 'word', chars: current })
+        current = []
+      }
+      tokens.push({ type: 'space' })
+    } else {
+      current.push({ char, index: i })
+    }
+  })
+  if (current.length) tokens.push({ type: 'word', chars: current })
+
   return (
     <p ref={ref} className={className} style={style}>
-      {chars.map((char, i) => {
-        const start = i / total
-        const end = (i + 1) / total
+      {tokens.map((token, ti) => {
+        if (token.type === 'space') return ' '
         return (
-          <Char
-            key={i}
-            char={char === ' ' ? ' ' : char}
-            progress={scrollYProgress}
-            range={[start, end]}
-          />
+          <span key={ti} className="inline-block whitespace-nowrap">
+            {token.chars.map(({ char, index }) => (
+              <Char
+                key={index}
+                char={char}
+                progress={scrollYProgress}
+                range={[index / total, (index + 1) / total]}
+              />
+            ))}
+          </span>
         )
       })}
     </p>

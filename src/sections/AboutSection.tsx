@@ -3,7 +3,7 @@ import AnimatedText from '../components/AnimatedText'
 import ContactButton from '../components/ContactButton'
 
 const ABOUT_TEXT =
-  "With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
+  "I'm a full-stack web developer who helps startups turn ideas into fast, scalable products. Working with React, Next.js, Node.js, and Laravel — and integrating AI where it moves the needle — I build everything from sleek front-ends to robust APIs, always backed by a rigorous TDD process. Let's ship something great together!"
 
 export default function AboutSection() {
   return (

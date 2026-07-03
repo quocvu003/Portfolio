@@ -3,40 +3,52 @@ import FadeIn from '../components/FadeIn'
 const SERVICES = [
   {
     number: '01',
-    name: '3D Modeling',
+    name: 'MVP & Product Development',
     description:
-      'Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.',
+      'Take your idea from zero to launch with full-stack web apps built on React, Next.js, Node.js, and Laravel — SaaS platforms, dashboards, and products architected to scale as you grow.',
   },
   {
     number: '02',
-    name: 'Rendering',
+    name: 'AI Product Engineering',
     description:
-      'High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.',
+      'Build AI-native features into your product — chatbots, semantic search, RAG pipelines, and workflow automation powered by the latest LLMs. Plus AI-accelerated delivery to ship your MVP 30-40% faster.',
   },
   {
     number: '03',
-    name: 'Motion Design',
+    name: 'API Development & Integration',
     description:
-      'Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.',
+      'Secure RESTful APIs and seamless third-party integrations — payments, auth, and external services wired into your product with clean, well-documented endpoints.',
   },
   {
     number: '04',
-    name: 'Branding',
+    name: 'Landing Pages & Websites',
     description:
-      'Crafting cohesive visual identities — from logos to full brand systems — that communicate a clear and memorable presence.',
+      'Fast, responsive, conversion-focused sites crafted with Next.js and TailwindCSS. Pixel-perfect UX that turns visitors into signups and paying customers.',
   },
   {
     number: '05',
-    name: 'Web Design',
+    name: 'Performance & Database Optimization',
     description:
-      'Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.',
+      'Scaling fast or hitting bottlenecks? I optimize queries, indexing, and architecture to cut load times and handle high-concurrency reliably — better UX and lower infra costs.',
+  },
+  {
+    number: '06',
+    name: 'SEO Optimization',
+    description:
+      'Rank higher on Google and get found by more customers — technical SEO, on-page optimization, structured data, and fast Core Web Vitals baked into every build.',
+  },
+  {
+    number: '07',
+    name: 'Maintenance & Support',
+    description:
+      'Ongoing updates, monitoring, and iteration to keep your product secure, stable, and shipping — so you can focus on growth.',
   },
 ]
 
 export default function ServicesSection() {
   return (
     <section
-      id="price"
+      id="services"
       className="bg-white rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
     >
       <h2
